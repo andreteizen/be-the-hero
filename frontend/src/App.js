@@ -1,25 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+import './global.css';
+import Logon from './pages/Logon'; //Ele sempre busca o arquivo index dentro da pasta, caso nao seja passado um arquivo para ele
+
+/**
+ * Componente no react nada mais é do que uma FUNÇÃO que retorna um HTML
+ */
 function App() {
+
+  // useState retorna um array [valor, função de atualização]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Penis
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Logon />
   );
 }
 
