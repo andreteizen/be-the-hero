@@ -18,7 +18,7 @@ export default function Profile() {
 
     useEffect(() => {
         api.get('profile', {
-            header: {
+            headers: {
                 Authorization: ongId,
             }
         }).then(response => {

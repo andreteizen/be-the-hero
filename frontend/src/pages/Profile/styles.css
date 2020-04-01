@@ -19,6 +19,11 @@
     height: 64px;
 }
 
+.profile-container header a {
+    width: 260px;
+    margin-left: auto;
+}
+
 .profile-container header button {
     height: 60px;
     width: 60px;
