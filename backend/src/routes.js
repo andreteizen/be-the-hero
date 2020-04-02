@@ -16,7 +16,7 @@ routes.post('/ongs', celebrate({
     [Segments.BODY]: Joi.object().keys({ //Estamos acessando o BODY da nossa requisição e verificando cada um dos parâmetros passados
         name: Joi.string().required(), //String() significa que o campo é uma string e required() significa que o campo é obrigatório
         email: Joi.string().required().email(),
-        whatsapp: Joi.number().required().min(10).max(11),
+        whatsapp: Joi.string().required().min(10).max(11),
         city: Joi.string().required(),
         uf: Joi.string().required().length(2),
     })

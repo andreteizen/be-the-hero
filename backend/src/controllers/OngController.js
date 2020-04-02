@@ -1,4 +1,4 @@
-const crypto = require('crypto'); //Biblioteca para criptografia, vai ser utilizada para criar a ID
+const generateUniqueId = require('../utils/generateUniqueId');
 const connection = require('../database/connection');
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     async create(request, response) {
         const { name, email, whatsapp, city, uf } = request.body;
 
-        const id = crypto.randomBytes(4).toString('HEX');
+        const id = generateUniqueId();
 
         //Como o comando insert pode demorar, precisamos ter certeza de ir para o return só depois dele terminar
         await connection('ongs').insert({
