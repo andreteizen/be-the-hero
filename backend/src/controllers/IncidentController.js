@@ -3,7 +3,7 @@ const connection = require('../database/connection');
 module.exports = {
     async index(request, response) {
         const { page = 1 } = request.query;
-        
+
         const [count] = await connection('incidents').count(); //Contador de total de casos
 
         const incidents = await connection('incidents')
@@ -18,8 +18,8 @@ module.exports = {
                 'ongs.city',
                 'ongs.uf'
             ]); //Se colocasse só select *, ele duplicaria o id da ong pq ele aparece tanto na tabela de incidents quanto na tabela ongs, então coloca-se apenas os dados que queremos que retorne
-        
-        response.header('X-Total-Count', count['count(*)']);
+
+        response.header('X-Total-Count', count['count(*)'] - 1);
 
         return response.json(incidents);
     },
@@ -27,7 +27,7 @@ module.exports = {
     async create(request, response) {
         const { title, description, value } = request.body;
         const ong_id = request.headers.authorization;
-    
+
         const [id] = await connection('incidents').insert({
             title,
             description,
